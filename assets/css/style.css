@@ -1,0 +1,258 @@
+/*ESTILOS GERAIS*/
+html, body, figure, img, div, input, textarea, p, h1, h2, h3, h4, h5, h6, ul, li, a, main{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.coluna{
+    flex-basis: 49%; /*PARA DEFINIR UM TAMANHO PADRÃO PARA AS COLUNAS*/
+}
+
+.hidden{
+    display: none; /*PARA ESCONDER ELEMENTOS*/
+}
+
+/*DECLARAR VARIALVEL*/
+:root{
+    --corBackgroundPrimaria: #692032;
+    --corBackgroundSecundaria: #5a1e2c;
+    --corBackgroundDark: #0e0e0e;
+    --CorTextPrimaria: #636363;
+    --CorTextSecundaria: #000;
+}
+
+/* BODY */
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* HEADER */
+header{
+    background-color: var(--corBackgroundPrimaria); /*COR DE FUNDO DO CABEÇALHO*/
+    padding: 20px 20px 0;
+}
+header .container{
+    background-color: white; /*COR DO CONTAINER DO CABEÇALHO*/
+}
+header .linha{
+    align-items: center;
+}
+header .coluna-esquerda{
+    flex-basis: 30%; /**/
+}
+header .coluna-direita{
+    flex-basis: 70%;
+    text-align: center;
+}
+header .coluna figure{}
+header .coluna img{
+    max-width: 100%; /*TAMANHO DA IMAGEM*/
+}
+header .coluna h1{
+    font-size: 1.5rem; /*TAMANHO DA FONTE*/
+    color: var(--CorTextSecundaria);
+}
+header .coluna p{
+    font-size: 1rem;
+    color: var(--CorTextPrimaria)
+}
+header .coluna ul{
+    margin: 16px 0 0; /*PARA DAR UMA MARGEM ENTRE OS TEXTOS*/
+}
+header .coluna ul li{
+    margin: 0 0 12px;
+}
+header .coluna ul li a{
+    font-size: 1rem;
+    color: var(--CorTextSecundaria);
+}
+
+/* FOOTER */
+footer{
+/*background-color: #94133d;*/
+background-color: var(--corBackgroundSecundaria); /*COR DE FUNDO DO RODA PÉ*/
+
+}
+footer .container{
+    padding: 20px;
+}
+footer nav ul li a{
+    color: white;
+}
+footer nav .info-contato li{
+    margin: 0 0 15px;
+}
+footer nav .redes-sociais{
+    border-top: 1px solid rgb(255 255 255 /20%); /*PARA COLOCAR UMA BORDA APENAS NO TOPO (UMA LINHA)*/
+    margin: 4px 0 26px;
+    padding: 50px 0 0;
+    text-align: center;
+} 
+footer nav .redes-sociais li{
+    margin: 15px 28px; /*DAR UM ESPAÇO ENTRE UMA IMG E A OUTRA*/
+    text-align: center;
+    display: inline-block;
+}
+footer nav .redes-sociais li a img{
+    width: 40px; /*TAMANHO DAS IMAGENS DO RODA PÉ*/
+}
+
+/* PAGINA INICIAL */
+main .coluna{
+    padding: 0 20px;
+}
+main .coluna section{
+    border-bottom: 1px solid #d4e9ff;
+    margin: 0 0 20px;
+    color: var(--CorTextSecundaria);
+    min-height: 100px;
+}
+mian .coluna section h2{
+    font-size: 1.3rem;
+    margin: 0 0 15px;
+}
+main .coluna section ul li h3{
+    font-size: 1.1rem;
+}
+main .coluna section ul li h4{
+    color: var(--CorTextPrimaria);
+    font-size: 1rem;
+    margin: 1.5px;
+}
+main .coluna section p{
+    font-size: 0.9rem;
+    color: var(--CorTextPrimaria);
+    line-height: 1.5; /*AUMENTAR O ESPAÇAMENTO ENTRE UMA LINHA É OUTRA*/
+}
+main .coluna section ul li{
+    margin: 0 0 12px;
+}
+
+main .coluna section ul li strong{
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 5px 0 10px;
+    display: inline-block;
+}
+main .coluna section ul li p{}
+
+/* EXTRAS */
+.ativar-dark{
+    width: 50px; /*ALTURA*/
+    height: 50px; /*LARGURA*/
+    display: none;
+}
+header .container{
+    position: relative;
+}
+label{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 52px;
+    height: 30px;
+    background-color: var(--corBackgroundSecundaria);
+    border-radius: 20px;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+label span{
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: #d4e9ff;
+    border-radius: 100%;
+    transition: all ease .3s;
+}
+.ativar-dark:checked ~.dark-mode label{
+    background-color: #d4e9ff;
+}
+.ativar-dark:checked ~.dark-mode label span{
+    background-color: var(--corBackgroundSecundaria);
+    /*margin-left: 20px;*/
+    transform: translateX(21px);
+    transition: all ease .3s;
+}
+.ativar-dark:checked ~.dark-mode{ /*QUANDO MEU INPUT ESTIVER CHECADO EU QUERO QUE O PROXIMO ELEMENTO(IRMÃO) RECEBA ESSAS REGRAS*/
+    --corBackgroundPrimaria: #000;
+    --corBackgroundSecundaria: #000;
+    --CorTextPrimaria: #fff;
+    --CorTextSecundaria: #fff;
+}
+.ativar-dark:checked ~.dark-mode header{
+    background-color: var(--corBackgroundPrimaria);
+}
+.ativar-dark:checked ~.dark-mode header .container{
+    background-color: var(--corBackgroundDark);
+}
+.ativar-dark:checked ~.dark-mode .container{
+    background-color: var(--corBackgroundDark);
+}
+.ativar-dark:checked ~.dark-mode main{
+   background-color: var(--corBackgroundPrimaria);
+}
+/* @MEDIA */
+@media only screen and (min-width: 768px){
+    .linha{
+        display: flex;
+        flex-wrap: wrap; /*PARA DEFINIR SE O CONTEÚDO VAI QUEBRAR*/
+        align-items: flex-start; 
+        justify-content: space-between;
+    }
+
+    footer nav .redes-sociais{
+        display: flex; /*COLOCAR AS IMAGENS DAS REDES SOCIAIS UM AO LADO DO OUTRO*/
+        justify-content: center; /*CENTRALIZAR AS IMAGENS NA PÁGINA*/
+    } 
+
+    header{
+        padding-top: 30px 0 0;
+    }
+
+    header .coluna img{
+        border-radius: 100%; /*DEIXAR A IMAGEM REDONDA*/
+    }
+    header .coluna img{
+        max-width: 250px; /*TAMANHO DA IMAGEM*/
+        border-radius: 100%;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 1125px;
+        margin: 0 auto; /*CENTRALIZAR O CONTAINER*/
+        padding: 30px;
+    }
+
+    header .coluna-direita{
+        text-align: left;
+    }
+
+    main .coluna section{
+        border: 1px solid #d4e9ff;
+        padding: 20px;
+    }
+    main .coluna{
+        padding: 0;
+    }
+
+    footer nav .redes-sociais li{
+        margin: 0 14px; /*DAR UM ESPAÇO ENTRE UMA IMG E A OUTRA*/
+        text-align: center;
+        display: initial; /*PARA VOLTAR PRO ESTADO PADRÃO*/
+    }
+
+    header .coluna-direita{
+        flex-basis: 60%;
+    }
+}
+
+@media only screen and (min-width: 991px){
+    header .coluna-direita{
+        flex-basis: 70%;
+    }
+}
